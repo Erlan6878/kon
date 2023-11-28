@@ -3,6 +3,7 @@ let number = document.querySelector("#number");
 let name = document.querySelector("#name");
 let btn = document.querySelector(".btn");
 let div = document.querySelector(".div");
+
 let list = document.querySelector(".task-list")
 
 btn.addEventListener("click", () => {
@@ -35,6 +36,16 @@ function setItemToStorage(task) {
   data.push(task);
   localStorage.setItem("task-data", JSON.stringify(data));
 }
+function setItemToStorage(task1) {
+  let data = JSON.parse(localStorage.getItem("task-data")) || [];
+  data.push(task1);
+  localStorage.setItem("task-data", JSON.stringify(data));
+}
+function setItemToStorage(task2) {
+  let data = JSON.parse(localStorage.getItem("task-data")) || [];
+  data.push(task2);
+  localStorage.setItem("task-data", JSON.stringify(data));
+}
 //----------------------------------------------------
 function createElement() {
   if (!localStorage.getItem("task-data")) {
@@ -63,7 +74,7 @@ function createElement() {
   });
 }
 createElement();
-//! DELETE
+
 function deleteElement(index) {
   let data = JSON.parse(localStorage.getItem("task-data"));
   data.splice(index, 1);
